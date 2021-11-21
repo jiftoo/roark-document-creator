@@ -9,7 +9,8 @@
 	},
 	"scripts": {
 		"start": "react-app-rewired start",
-		"build": "react-app-rewired build && copy build\\index.html ..\\schema\\pdf"
+		"build-win": "react-app-rewired build && copy build\\index.html ..\\schema\\pdf"
+		"build-linux": "react-app-rewired build && cp ./build/index.html ../schema/pdf"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
