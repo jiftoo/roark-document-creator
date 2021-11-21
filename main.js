@@ -93,5 +93,6 @@ export const obj = {
 			}
 		});
 	});
-	app.listen("3000");
+	app.listen("6001");
+	console.log("Listening on 6001");
 })();
