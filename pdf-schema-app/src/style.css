@@ -1,0 +1,16 @@
+body {
+	font-family: Arial;
+	font-size: 13px;
+
+	padding: 0.6in 0.59in 0.79in 1.18in;
+	line-height: 1.4;
+}
+
+p {
+	margin-left: 2.8in;
+}
+
+p span:after {
+	content: "\a";
+	white-space: pre;
+}

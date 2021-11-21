@@ -1,0 +1,35 @@
+{
+	"name": "abc",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-scripts": "4.0.3"
+	},
+	"scripts": {
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build && copy build\\index.html ..\\schema\\pdf"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			"chrome > 92"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"html-inline-css-webpack-plugin": "^1.11.1",
+		"html-inline-script-webpack-plugin": "^1.1.6",
+		"html-webpack-inline-source-plugin": "^1.0.0-beta.2",
+		"inline-chunk-html-plugin": "^1.1.1",
+		"npm": "^8.1.4",
+		"react-app-rewired": "^2.1.8"
+	}
+}
