@@ -9,5 +9,5 @@ export async function servePdf(req, resp) {
 
 export async function serveDocx(req, resp) {
 	const filename = await generateDocx({plaintiff: castObjectToClass(req.body.zaimodavec), defendant: castObjectToClass(req.body.zaemshik)});
-	//resp.send("file/" + filename);
+	resp.send("file/" + filename);
 }
