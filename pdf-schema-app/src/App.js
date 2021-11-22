@@ -149,6 +149,7 @@ const App = () => {
 				{/* TODO: data.city is not implemented yet */}
 				<Line value={`В ${data.city?.name} городской суд`} />
 				<Line name="Адрес" value={data.city?.court} />
+				<Line show={plaintiff.filial} name="Филиал" value={plaintiff.filial?.name} />
 				<Line show={plaintiff.name} name="Истец" value={`${plaintiff.surname} ${plaintiff.name} ${plaintiff.paternal}`} />
 				<Line name="Адрес" value={plaintiff.address.value} />
 				<Line name="ИНН" value={plaintiff.address.inn} />
@@ -158,6 +159,7 @@ const App = () => {
 				<Line name="Тел" value={representative.phone} />
 			</p>
 			<p>
+				<Line show={defendant.filial} name="Филиал" value={defendant.filial?.name} />
 				<Line show={defendant.name} name="Ответчик" value={`${defendant.surname} ${defendant.name} ${defendant.paternal}`} />
 				<Line
 					name={["Адрес", "Последний известный адрес", "Адрес места нахождения имущества", "Mесто жительства ответчика неизвестно", null][+defendant.address.type]}
