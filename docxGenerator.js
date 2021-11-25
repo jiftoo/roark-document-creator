@@ -38,10 +38,27 @@ export async function prepareDocxGenerator() {
 }
 
 export async function generateDocx(object) {
+	const applyNameChange = (side) => {
+		if (side.changes) {
+			side.name = side.changes.name ?? side.name;
+			side.surname = side.changes.surname ?? side.surname;
+			side.paternal = side.changes.paternal ?? side.paternal;
+		}
+	};
+
+	applyNameChange(object.plaintiff);
+	applyNameChange(object.defendant);
+
+	console.log(object.plaintiff);
+    
+	await prepareDocxGenerator();
 	templater.render(object);
+
 	const buffer = templater.getZip().generate({type: "nodebuffer"});
 
 	const filename = randomFilename() + ".docx";
-	await fs.promises.writeFile(tempDir +"/" + filename, buffer);
+	await fs.promises.writeFile(tempDir + "/" + filename, buffer);
+
+	console.log(tempDir + "/" + filename);
 	return filename;
 }

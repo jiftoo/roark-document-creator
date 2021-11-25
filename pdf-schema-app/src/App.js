@@ -143,13 +143,29 @@ const App = () => {
 	let {plaintiff, defendant} = data;
 	const representative = plaintiff.representative;
 	defendant = {...defendant, ...defendant.defendant}; // bruh
+
+	const applyNameChange = (side) => {
+		if (side.changes) {
+			side.name = side.changes.name ?? side.name;
+			side.surname = side.changes.surname ?? side.surname;
+			side.paternal = side.changes.paternal ?? side.paternal;
+		}
+	};
+
+	applyNameChange(plaintiff);
+	applyNameChange(defendant);
+
 	return (
 		<aside>
 			<p>
 				{/* TODO: data.city is not implemented yet */}
 				<Line value={`В ${data.city?.name} городской суд`} />
 				<Line name="Адрес" value={data.city?.court} />
-				<Line show={plaintiff.name} name="Истец" value={`${plaintiff.filial ? plaintiff.filial.name + " " : ""}${plaintiff.surname} ${plaintiff.name} ${plaintiff.paternal}`} />
+				<Line
+					show={plaintiff.name}
+					name="Истец"
+					value={`${plaintiff.filial ? plaintiff.filial.name + " " : ""}${plaintiff.surname} ${plaintiff.name} ${plaintiff.paternal}`}
+				/>
 				<Line name="Адрес" value={plaintiff.address.value} />
 				<Line name="ИНН" value={plaintiff.address.inn} />
 				<Line name="Тел" value={plaintiff.phone} />
@@ -158,7 +174,11 @@ const App = () => {
 				<Line name="Тел" value={representative.phone} />
 			</p>
 			<p>
-				<Line show={defendant.name} name="Ответчик" value={`${defendant.filial ? defendant.filial.name + " " : ""}${defendant.surname} ${defendant.name} ${defendant.paternal}`} />
+				<Line
+					show={defendant.name}
+					name="Ответчик"
+					value={`${defendant.filial ? defendant.filial.name + " " : ""}${defendant.surname} ${defendant.name} ${defendant.paternal}`}
+				/>
 				<Line
 					name={["Адрес", "Последний известный адрес", "Адрес места нахождения имущества", "Mесто жительства ответчика неизвестно", null][+defendant.address.type]}
 					value={defendant.address.type <= 2 ? defendant.address.value : "приложено ходатайство об истребовании адресной информации в отношении ответчика"}

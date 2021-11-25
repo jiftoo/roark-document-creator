@@ -1,2 +1,7 @@
 /node_modules
 /build
+/temp/docx/*
+!/temp/docx/.gitkeep
+
+/temp/pdf/*
+!/temp/pdf/.gitkeep
