@@ -164,7 +164,9 @@ const App = () => {
 				<Line
 					show={plaintiff.name}
 					name="Истец"
-					value={`${plaintiff.filial ? plaintiff.filial.name + " " : ""}${plaintiff.surname} ${plaintiff.name} ${plaintiff.paternal}`}
+					value={`${plaintiff.type === 1 && !plaintiff.liquidationDate ? "ИП " : ""}${plaintiff.filial ? plaintiff.filial.name + " " : ""}${plaintiff.surname} ${
+						plaintiff.name
+					} ${plaintiff.paternal}`}
 				/>
 				<Line name="Адрес" value={plaintiff.address.value} />
 				<Line name="ИНН" value={plaintiff.address.inn} />
@@ -177,11 +179,21 @@ const App = () => {
 				<Line
 					show={defendant.name}
 					name="Ответчик"
-					value={`${defendant.filial ? defendant.filial.name + " " : ""}${defendant.surname} ${defendant.name} ${defendant.paternal}`}
+					value={`${defendant.type === 1 && !defendant.liquidationDate ? "ИП " : ""}${defendant.filial ? defendant.filial.name + " " : ""}${defendant.surname} ${
+						defendant.name
+					} ${defendant.paternal}`}
 				/>
 				<Line
-					name={["Адрес", "Последний известный адрес", "Адрес места нахождения имущества", "Mесто жительства ответчика неизвестно", null][+defendant.address.type]}
-					value={defendant.address.type <= 2 ? defendant.address.value : "приложено ходатайство об истребовании адресной информации в отношении ответчика"}
+					name={
+						{
+							normal: "Адрес",
+							last: "Последний известный адрес",
+							realestate: "Адрес местонахождения недвижимости",
+							juridical: "Адрес места регистрации юр. лица",
+							unknown: "Место жительства ответчика неизвестно",
+						}[defendant.address.type]
+					}
+					value={defendant.address.type !== "unknown" ? defendant.address.value : "приложено ходатайство об истребовании адресной информации в отношении ответчика"}
 				/>
 				<Line name="ИНН" value={defendant.inn} />
 				<Line
@@ -195,8 +207,9 @@ const App = () => {
 					name="Свидетельство о регистрации ТС"
 					value={`${defendant.vehicleRegistration.series} ${defendant.vehicleRegistration.number}`}
 				/>
-				<Line name="Дата рождения" value={defendant.birthDate} />
+				<Line name="Дата рождения" value={defendant.birthDate.split("-").reverse().join(".")} />
 				<Line name="Место рождения" value={defendant.birthPlace} />
+				<Line name="Место работы" value={defendant.workPlace} />
 				<Line name="Тел" value={defendant.phone} />
 				<Line name="ОГРНИП" value={defendant.ogrnip} />
 				<Line name="Цена иска" value={"999’999"} />

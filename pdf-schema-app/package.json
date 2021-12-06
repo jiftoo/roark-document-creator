@@ -8,9 +8,8 @@
 		"react-scripts": "4.0.3"
 	},
 	"scripts": {
-		"start": "react-app-rewired start",
-		"build-win": "react-app-rewired build && copy build\\index.html ..\\schema\\pdf",
-		"build-linux": "react-app-rewired build && cp ./build/index.html ../schema/pdf"
+		"build-win": "react-app-rewired --openssl-legacy-provider build && copy build\\index.html ..\\schema\\pdf",
+		"build-linux": "react-app-rewired --openssl-legacy-provider build && cp ./build/index.html ../schema/pdf"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
