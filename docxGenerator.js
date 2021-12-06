@@ -70,7 +70,7 @@ export async function generateDocx(object) {
 	const filename = await generatePdf(object);
 	if (commandExists.sync("soffice")) {
 		// update rootDir when moving docxGenerator
-		const command = `soffice --invisible --quickstart --infilter="writer_pdf_import" --convert-to docx:"MS Word 2007 XML" --outdir ${tempDir} ${tempDirPdf}/${filename}`;
+		const command = `soffice --invisible --infilter="writer_pdf_import" --convert-to docx:"MS Word 2007 XML" --outdir ${tempDir} ${tempDirPdf}/${filename}`;
 		try {
 			const out = execSync(command, {cwd: rootDir}).toString().split("\n");
 			const hasError = out.some((str) => str.toLowerCase().startsWith("error"));
