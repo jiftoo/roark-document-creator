@@ -207,7 +207,7 @@ const App = () => {
 					name="Свидетельство о регистрации ТС"
 					value={`${defendant.vehicleRegistration.series} ${defendant.vehicleRegistration.number}`}
 				/>
-				<Line name="Дата рождения" value={defendant.birthDate.split("-").reverse().join(".")} />
+				<Line name="Дата рождения" value={defendant.birthDate ? defendant.birthDate.split("-").reverse().join(".") : undefined} />
 				<Line name="Место рождения" value={defendant.birthPlace} />
 				<Line name="Место работы" value={defendant.workPlace} />
 				<Line name="Тел" value={defendant.phone} />
