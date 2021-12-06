@@ -5,59 +5,59 @@ import {prepareDocxGenerator} from "./docxGenerator.js";
 import {preparePdfGenerator} from "./pdfGenerator.js";
 import {serveDocx, servePdf} from "./routes.js";
 
-export const obj = {
-	type: 2,
-	name: 'ООО "ЯНДЕКС"',
-	phone: null,
-	email: null,
-	address: {
-		type: null,
-		value: "г Москва, ул Льва Толстого, д 16",
-		realestate: null,
-		kladr: null,
-		oktmo: null,
-		inn: null,
-	},
-	representative: {
-		name: null,
-		surname: null,
-		paternal: null,
-		address: null,
-		phone: null,
-		POADate: null,
-		POANumber: null,
-	},
-	defendant: {
-		birthDate: null,
-		birthPlace: null,
-		workPlace: null,
-		passport: {
-			series: null,
-			number: null,
-			issuer: null,
-			issueDate: null,
-		},
-		driverLicense: {
-			series: null,
-			number: null,
-		},
-		vehicleRegistration: {
-			series: null,
-			number: null,
-			issuer: null,
-			issueDate: null,
-		},
-		noData: false,
-	},
-	inn: "7736207543",
-	kladr: "7700000000070950031",
-	okato: "45286590000",
-	oktmo: "45383000",
-	autofillAddress: true,
-	filial: {
-		name: null,
-	},
-};
+// export const obj = {
+// 	type: 2,
+// 	name: 'ООО "ЯНДЕКС"',
+// 	phone: null,
+// 	email: null,
+// 	address: {
+// 		type: null,
+// 		value: "г Москва, ул Льва Толстого, д 16",
+// 		realestate: null,
+// 		kladr: null,
+// 		oktmo: null,
+// 		inn: null,
+// 	},
+// 	representative: {
+// 		name: null,
+// 		surname: null,
+// 		paternal: null,
+// 		address: null,
+// 		phone: null,
+// 		POADate: null,
+// 		POANumber: null,
+// 	},
+// 	defendant: {
+// 		birthDate: null,
+// 		birthPlace: null,
+// 		workPlace: null,
+// 		passport: {
+// 			series: null,
+// 			number: null,
+// 			issuer: null,
+// 			issueDate: null,
+// 		},
+// 		driverLicense: {
+// 			series: null,
+// 			number: null,
+// 		},
+// 		vehicleRegistration: {
+// 			series: null,
+// 			number: null,
+// 			issuer: null,
+// 			issueDate: null,
+// 		},
+// 		noData: false,
+// 	},
+// 	inn: "7736207543",
+// 	kladr: "7700000000070950031",
+// 	okato: "45286590000",
+// 	oktmo: "45383000",
+// 	autofillAddress: true,
+// 	filial: {
+// 		name: null,
+// 	},
+// };
 
 (async function () {
 	await prepareDocxGenerator();
